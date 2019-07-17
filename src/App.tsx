@@ -29,7 +29,7 @@ const App: React.FC = () => {
 
 function getWeather() : string
 {
-  let endpoint = 'http://api.openweathermap.org/data/2.5/weather?lat=53.57532&lon=10.01534&appid=69b7632e3b92de94e93daecb004c1447&units=metric&lang=de';
+  let endpoint = 'http://api.openweathermap.org/data/2.5/weather?lat=53.57532&lon=10.01534&appid=mykey&units=metric&lang=de';
   return endpoint;
 }
 
