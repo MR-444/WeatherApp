@@ -1,19 +1,24 @@
 import { Injectable} from '@angular/core';
-import { HttpClient  } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Injectable()
 export class WeatherService
 {
-  private readonly URL = 'http://api.openweathermap.org/data/2.5/weather?lat=53.57532&lon=10.01534&appid=myId&units=metric&lang=de';
+  private readonly URL = 'http://api.openweathermap.org/data/2.5/weather?lat=53.57532&lon=10.01534&appid=mykes&units=metric&lang=de';
 
-  constructor(
-    protected httpClient: HttpClient,
-  ) {}
+  //private weatherObservable : Observable<any[]> ;
 
-  public get(): string
+
+  constructor( private httpClient: HttpClient) {
+  }
+
+
+  async get() : Promise<string>
   {
-    return this.httpClient.get(`${this.URL}`);
+    const response = this.httpClient.get(`${this.URL}`).toPromise();
+    return response[Symbol.toStringTag];
   }
 }
 
