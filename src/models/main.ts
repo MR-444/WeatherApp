@@ -1,6 +1,6 @@
-export interface  Main {
-  temp: number;
-  pressure: string;
+export default interface  Main {
+  temp:     number;
+  pressure: number;
   humidity: number;
   temp_min: number;
   temp_max: number;
