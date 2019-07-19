@@ -8,10 +8,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          <Clock date={new Date()}/>
-          Your daily weather forecast of the next week in celsius.
-        </p>
+        <Intro/>
         <Overview/>
       </header>
     </div>
@@ -22,6 +19,17 @@ function Clock(props: any) {
   return (
     <div>
       <h5>It is {props.date.toLocaleTimeString()}.</h5>
+    </div>
+  );
+}
+
+function Intro() {
+  return (
+    <div>
+      <p>
+        <Clock date={new Date()}/>
+        Your daily weather forecast of the next week in celsius.
+      </p>
     </div>
   );
 }
