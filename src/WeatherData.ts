@@ -20,9 +20,6 @@ import Main from "./models/main";
 
 export default class WeatherData {
 
-
-
-
    private WeekTemperatureArray: Main[] = [
      { temp:  20.0, pressure: 1009, humidity:  64, temp_min:   17, temp_max:   23.33  },
      { temp:  21.0, pressure: 1012, humidity:  84, temp_min:   18, temp_max:   24.33  },
