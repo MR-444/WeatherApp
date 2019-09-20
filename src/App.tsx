@@ -7,11 +7,7 @@ import Main from "./models/main"
 
 interface ButtonProps {
   dayOfWeek: string;
-/*  temp:  number;
-  pressure: number;
-  humidity:  number;
-  temp_min:   number;
-  temp_max: number;*/
+  temp: number;
 }
 
 // original
@@ -41,7 +37,8 @@ function Intro() {
     <div>
       <p>
         <Clock date={new Date()}/>
-        Your daily weather forecast for the next week in celsius.
+        Your daily weather forecast for the next week.
+        Day and temperature in celsius.
       </p>
     </div>
   );
@@ -54,22 +51,28 @@ function Overview() {
   return (
     <div>
       {Object.values(DayOfWeek).filter(key => !isNaN(Number(key))).map((key: any) => {
-        return (<p><Button dayOfWeek={DayOfWeek[key]} />{weeklyWeatherArray[key].temp} </p>)
+        return (<p><Button dayOfWeek={DayOfWeek[key]} temp= {weeklyWeatherArray[key].temp} /> </p>)
       })}
-
-
     </div>
   );
 }
 
 export class Button extends Component<ButtonProps> {
+  constructor(props: ButtonProps){
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+    this.state = {dayOfWeek: this.props.dayOfWeek}
+    this.state = {temp: this.props.temp}
+  }
+
+
   handleClick(event: MouseEvent) {
     event.preventDefault();
-    alert(event.currentTarget.tagName); // alerts BUTTON
+    alert(this.state.); // alerts BUTTON
   }
 
   render() {
-      return <button onClick={this.handleClick}> {this.props.dayOfWeek} </button>
+      return <button onClick={this.handleClick}> {this.props.dayOfWeek} {this.props.temp} </button>
   }
 }
 
