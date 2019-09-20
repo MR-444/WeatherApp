@@ -5,9 +5,13 @@ import {DayOfWeek} from  "./models/DayOfWeek";
 import Main from "./models/main"
 
 
-
-interface Props {
-  day: String;
+interface ButtonProps {
+  dayOfWeek: string;
+/*  temp:  number;
+  pressure: number;
+  humidity:  number;
+  temp_min:   number;
+  temp_max: number;*/
 }
 
 // original
@@ -21,8 +25,6 @@ const App: React.FC = () => {
     </div>
   );
 }
-
-
 
 
 function Clock(props: any) {
@@ -51,46 +53,23 @@ function Overview() {
 
   return (
     <div>
-      <Button value = {DayOfWeek[DayOfWeek.Monday]} />
-      {DayOfWeek[DayOfWeek.Monday]}:    {weeklyWeatherArray[DayOfWeek.Monday].temp} <br />
+      {Object.values(DayOfWeek).filter(key => !isNaN(Number(key))).map((key: any) => {
+        return (<p><Button dayOfWeek={DayOfWeek[key]} />{weeklyWeatherArray[key].temp} </p>)
+      })}
 
-      <Button  />
-      {DayOfWeek[DayOfWeek.Tuesday]}:   {weeklyWeatherArray[DayOfWeek.Tuesday].temp} <br />
 
-      <Button  />
-      {DayOfWeek[DayOfWeek.Wednesday]}: {weeklyWeatherArray[DayOfWeek.Wednesday].temp} <br />
-
-      <Button  />
-      {DayOfWeek[DayOfWeek.Thursday]}:  {weeklyWeatherArray[DayOfWeek.Thursday].temp} <br />
-
-      <Button  />
-      {DayOfWeek[DayOfWeek.Friday]}:    {weeklyWeatherArray[DayOfWeek.Friday].temp} <br />
-
-      <Button  />
-      {DayOfWeek[DayOfWeek.Saturday]}:  {weeklyWeatherArray[DayOfWeek.Saturday].temp} <br />
-
-      <Button  />
-      {DayOfWeek[DayOfWeek.Sunday]}:    {weeklyWeatherArray[DayOfWeek.Sunday].temp} <br />
     </div>
   );
 }
 
-export class Button extends Component {
-  private readonly day: string;
-
-  constructor(public props: any, public dayOfWeek: string)
-  {
-    super(props);
-    this.day = "dayOfWeek";
-  }
-
+export class Button extends Component<ButtonProps> {
   handleClick(event: MouseEvent) {
     event.preventDefault();
     alert(event.currentTarget.tagName); // alerts BUTTON
   }
 
   render() {
-      return <button onClick={this.handleClick}> {this.day} </button>
+      return <button onClick={this.handleClick}> {this.props.dayOfWeek} </button>
   }
 }
 
