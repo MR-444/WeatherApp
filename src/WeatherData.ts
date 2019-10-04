@@ -2,7 +2,7 @@ import Axios from 'axios';
 import Main from "./models/main";
 
 
-/*export default class WeatherService {
+export  class WeatherService {
   private readonly URL = 'http://api.openweathermap.org/data/2.5/weather?lat=53.57532&lon=10.01534&appid=mykey&units=metric&lang=de';
   private coordinates: any = {};
 
@@ -16,9 +16,9 @@ import Main from "./models/main";
     // .then((res: any) => console.log(res)).catch((error: any) => console.error(error));
   }
 }
- */
 
-export default class WeatherData {
+
+export  class WeatherData {
 
    private WeekTemperatureArray: Main[] = [
      { temp:  20.0, pressure: 1009, humidity:  64, temp_min:   17, temp_max:   23.33  },

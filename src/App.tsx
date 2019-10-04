@@ -1,6 +1,7 @@
 import React, { Component, MouseEvent } from 'react';
 import './App.css';
-import WeatherData from "./WeatherData";
+import {WeatherData,  WeatherService} from "./WeatherData";
+
 import {DayOfWeek} from  "./models/DayOfWeek";
 import Main from "./models/main"
 
@@ -68,7 +69,7 @@ export class Button extends Component<ButtonProps> {
 
   handleClick(event: MouseEvent) {
     event.preventDefault();
-    alert(this.state.); // alerts BUTTON
+    alert(this.state); // alerts BUTTON
   }
 
   render() {
